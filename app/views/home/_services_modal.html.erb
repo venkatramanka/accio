@@ -6,7 +6,7 @@
         <div class='form-group'>
           <%= select_tag "service", options_from_collection_for_select(@services, "id", "name") , class: 'form-control center' %>
         </div>
-        <button type="button" class="btn btn-primary" onclick="searchForService($('#service').val())">Search</button>
+        <button type="button" class="btn btn-primary" onclick="searchForService($('#service').val());toggleRightMenu();">Search</button>
       </div>
     </div>
   </div>

@@ -1,3 +1,4 @@
+var markers;
 $(document).ready(function(){
   $.slidebars({
     siteClose: false
@@ -24,10 +25,24 @@ function consumerToggle(){
   $('#right_menu_button').fadeToggle();
 }
 
-function searchForService(service){
+function searchForService(service_id){
+  handler.removeMarkers(window.markers);
+  window.markers='';
   $("#services_modal").modal("hide");
-  toggleRightMenu();
-}
+  $.ajax({
+    url: 'home/get_users',
+    data:{
+      service_id: service_id
+    },
+    method: 'get',
+    success: function(data){
+      window.markers=handler.addMarkers(data);
+    },
+    failure: function(data){
+      alert("Something went wrong !!!");
+    }
+  });
+ }
 
 function toggleRightMenu() {
   $.slidebars.toggle("right");

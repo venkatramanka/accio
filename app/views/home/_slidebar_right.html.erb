@@ -7,7 +7,7 @@
         </h4>
       </div>
       <div class="panel-body">
-        <%= select_tag "service", options_from_collection_for_select(@services, "id", "name") , class: 'form-control center' %>
+        <%= select_tag "service", options_from_collection_for_select(@services, "id", "name"), class: 'form-control center', onchange: 'searchForService(this.value);' %>
       </div>
     </div>
 

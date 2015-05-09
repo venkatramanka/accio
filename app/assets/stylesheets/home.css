@@ -41,4 +41,8 @@ box-shadow:         0 0 10vh 0 rgba(232, 0, 0, 1.67);
  -webkit-box-shadow: 0 0 5vh 0 rgba(255, 255, 255, 1.67);
 -moz-box-shadow:    0 0 5vh 0 rgba(255, 255, 255, 1.67);
 box-shadow:         0 0 5vh 0 rgba(255, 255, 255, 1.67);
+
+.infobox_details{
+  height:100px;
+  width:200px;
 }

@@ -3,6 +3,8 @@ Accio::Application.routes.draw do
   match 'user/:id' => 'user#show'
 
   root :to => "home#index"
+
+  get 'home/get_users'
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :users
 
