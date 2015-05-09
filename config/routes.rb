@@ -1,12 +1,14 @@
 Accio::Application.routes.draw do
 
-  match 'user/:id' => 'user#show'
+  match 'user/:id' => 'provider#show', :as => "user"
+  match 'notification/:id' => 'provider#notifications', :as => "notifications"
 
   root :to => "home#index"
 
   get 'home/get_users'
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :users
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
