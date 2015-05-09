@@ -10,6 +10,7 @@
 
 <%= yield %>
 
+<%= render '/chat_footer' if session[:user_id] %>
 </body>
 
 </html>

@@ -1,5 +1,7 @@
 Accio::Application.routes.draw do
 
+  mount Chatter::Engine, :at => '/chat'
+
   resources :user, :only => [:update]
   match '/notification' => 'user#notifications', :as => "notifications"
   match '/deactivate' => 'notification#deactivate'
