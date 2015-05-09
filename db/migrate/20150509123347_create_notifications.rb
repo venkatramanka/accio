@@ -6,6 +6,7 @@ class CreateNotifications < ActiveRecord::Migration
       t.string :requestor_name
       t.string :requestor_phone
       t.text :requestor_message
+      t.string :group_id
 
       t.timestamps
     end
