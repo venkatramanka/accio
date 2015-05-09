@@ -4,7 +4,7 @@
     <div class="row" style="height:20%"></div>
     <div class="row images_holder" style="height:60%;width:100%">
       <div class="col-md-6 col-xs-12">
-        <center><a href="#"><%=image_tag "producer.png", style: "width:60%", id: "producer_image" %></a></center>
+        <center><a href="#" onclick="$('#loginModal').modal('show');"><%=image_tag "producer.png", style: "width:60%", id: "producer_image" %></a></center>
       </div>
       <div class="col-md-6 col-xs-12">
         <center><a href="#" onclick="consumerToggle();toggleFullScreen();$('#services_modal').modal('show');"><%= image_tag "consumer.png", style: "width:60%", id: "consumer_image" %></a></center>
