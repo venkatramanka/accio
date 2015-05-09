@@ -12,9 +12,9 @@ RailsAdmin.config do |config|
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 
   config.authorize_with do |controller|
-    unless current_user.try(:admin?)
+    unless current_user.is_a?(Admin)
       flash[:error] = "You are not an admin"
-      redirect_to root_path
+      redirect_to main_app.root_path
     end
   end
   # RailsAdmin may need a way to know who the current user is]
@@ -40,5 +40,4 @@ RailsAdmin.config do |config|
 
   # Label methods for model instances:
   # config.label_methods << :description # Default is [:name, :title]
-
 end
