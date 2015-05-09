@@ -4,6 +4,7 @@ $(document).ready(function(){
     siteClose: false
   });
   consumerToggle();
+  $('#show_more_accordion').collapse("hide");
   
 $('#help_me_accordion').on('show.bs.collapse', function () {
   $("#show_more_accordion").collapse("hide");
@@ -126,6 +127,13 @@ function requestCallback() {
   });
 }
 function helpMe() {
+  requestor_name=$("#help_requestor_name").val();
+  requestor_phone=$("#help_requestor_phone").val();
+  requestor_message=$("#help_requestor_message").val();
+  if(requestor_name==="" || requestor_phone==="" || requestor_message==="") {
+    alert("Oops... You are forgetting something here !!!");
+    return false;
+  }
   $('#help_please_wait').show(1000);
   $('#help_me_content').hide(1000);
   if (window.requestor_marker) {
@@ -139,9 +147,6 @@ function helpMe() {
     return false;
   }
   service_id=$('#service').val();
-  requestor_name=$("#help_requestor_name").val();
-  requestor_phone=$("#help_requestor_phone").val();
-  requestor_message=$("#help_requestor_message").val();
   $.ajax({
     url: 'home/help_me',
     data: {

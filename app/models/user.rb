@@ -31,13 +31,16 @@ class User < ActiveRecord::Base
   def details
     "<input type='hidden' id='provider_id' value='#{id}' /><br/>
     <span class='info_image'><center><img src='https://www.google.co.in/logos/doodles/2015/nellie-blys-151st-birthday-4862371034038272-res.png' /></center></span><br/>
+    <div id='show_more_text' class='verified-#{verified.to_s}'>
+    <div class='bg'></div>
     <span class='pull-right'><strong>#{name}</strong></span><br/>
     <span class='pull-right'><strong>#{mobile}</strong></span><br/>
     <span class='pull-right'>#{phone}</span><br/>
     <span class='pull-right'>#{address1}</span><br/>
     <span class='pull-right'>#{address2}</span><br/>
     <span class='pull-right'>#{city} - #{zipcode}</span><br/>
-    <span class='pull-left'><a href='#' onclick='openRequestCallbackForm();'>Request Callback</a></span>"
+    <span class='pull-left'><a href='#' onclick='openRequestCallbackForm();'>Request Callback</a></span>
+    </div></div>"
   end
 
   def calc_distance(lat, lng)
