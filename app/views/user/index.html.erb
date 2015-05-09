@@ -1,4 +1,4 @@
-  <%= form_for(@user, url: user_path(@user), html: { method: :put, class: 'form-horizontal' }) do |f| %>
+  <%= form_for(@user, url: "user/#{@user.id}", html: { method: 'PUT', class: 'form-horizontal' }) do |f| %>
 
     <div class="col-md-6">
 
@@ -29,14 +29,14 @@
       <div class="form-group">
         <%= f.label :phone, class: 'col-sm-2 control-label'  %>
         <div class="col-sm-6">
-          <%= f.text_field :phone, class: 'form-control', placeholder: '10 digits'   %>
+          <%= f.text_field :phone, class: 'form-control', placeholder: '10 digits' %>
         </div>
       </div>
 
       <div class="form-group">
         <%= f.label :mobile, class: 'col-sm-2 control-label'  %>
         <div class="col-sm-6">
-          <%= f.text_field :mobile, class: 'form-control', placeholder: '10 digits'  %>
+          <%= f.text_field :mobile, class: 'form-control', placeholder: '10 digits' %>
         </div>
       </div>
       
