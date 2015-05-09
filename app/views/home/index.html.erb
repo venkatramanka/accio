@@ -1,0 +1,27 @@
+<%= render :partial => 'background_map' %>
+<%= render :partial => 'slidebar_left' %>
+<%= render :partial => 'slidebar_right' %>
+<%= render :partial => 'services_modal' %>
+<script>
+handler = Gmaps.build('Google',
+  {
+    markers:{
+      clusterer: {
+      gridSize: 20,
+        maxZoom: 10
+      }
+    }
+  });
+handler.buildMap({ provider: {streetViewControl: false}, internal: {id: 'map'}}, function(){
+  if(navigator.geolocation.getCurrentPosition(displayOnMap)){
+
+  }
+  else{
+    var marker = handler.addMarker({lat: 20.593684, lng: 78.962880});
+    handler.map.centerOn(marker);
+    handler.map.serviceObject.setZoom(5);
+    handler.removeMarker(marker);
+    handler.fitMapToBounds();
+  }
+});
+</script>

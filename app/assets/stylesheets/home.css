@@ -1,0 +1,27 @@
+.sb-left .container{
+  overflow: hidden
+}
+#map_container{
+  height:100vh;
+  width:100vw;
+}
+#map{
+  height:100%;
+  width:100%;
+}
+#consumer_image:hover{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+ -webkit-box-shadow: 0 0 10vh 0 rgba(0, 255, 0, 1.67);
+-moz-box-shadow:    0 0 10vh 0 rgba(0, 255, 0, 1.67);
+box-shadow:         0 0 10vh 0 rgba(0, 255, 0, 1.67);
+}
+#producer_image:hover{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+ -webkit-box-shadow: 0 0 10vh 0 rgba(232, 0, 0, 1.67);
+-moz-box-shadow:    0 0 10vh 0 rgba(232, 0, 0, 1.67);
+box-shadow:         0 0 10vh 0 rgba(232, 0, 0, 1.67);
+}
