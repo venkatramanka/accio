@@ -1,6 +1,6 @@
 Accio::Application.routes.draw do
 
-  match 'user/:id' => 'user#show', :as => "user"
+  resources :user
   match 'notification/:id' => 'user#notifications', :as => "notifications"
 
   root :to => "home#index"

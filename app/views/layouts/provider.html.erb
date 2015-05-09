@@ -24,15 +24,32 @@
         <li class=<%= "active" if params[:action] == "show" %>> <%= link_to("Profile",user_path) %> </li>
         <li class=<%= "active" if params[:action] == "notifications" %>><a href="#">Notification</a></li>
       </ul>
-      <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link"><%= current_user.name %></a></p>
+      <%= link_to "Signout", destroy_user_session_path, :class => "navbar-text navbar-right btn btn-xs btn-primary", :style => "color:white;margin-right:0.1vw", :method => "DELETE"  %>
+      <p class="navbar-text navbar-right" style="border-right: 1px solid grey">Welcome <%= current_user.name %>&nbsp;&nbsp;</p>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 </head>
-<body>
-
+<body style="padding-top:10vh">
+<% if flash[:error] %>
+  <div class="alert alert-danger alert-error col-md-offset-2 col-md-8">
+    <a href="#" class="close" onclick="closeAlert(this)">&times;</a>
+    <strong>Error!</strong> <%= flash[:error] %>
+  </div>
+<%end%>
+<% if flash[:success] %>
+  <div class="alert alert-success col-md-offset-2 col-md-8">
+    <a href="#" class="close" onclick="closeAlert(this)">&times;</a>
+    <%= flash[:success] %>
+  </div>
+<%end%>
 <%= yield %>
 
 </body>
-
+<script>
+function closeAlert(el){
+  $(el).parent().slideUp();
+}
+</script>
 </html>
