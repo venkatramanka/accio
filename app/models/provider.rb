@@ -4,4 +4,6 @@ class Provider < User
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates :phone, format: { with: /\d{10}/, message: " - Invalid Format" }
   validates :mobile, format: { with: /\d{10}/, message: " - Invalid Format" }
+
+  
 end

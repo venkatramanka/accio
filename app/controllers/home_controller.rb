@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
+
   def index
-  	@services = Service.all
+    @services = Service.all
+    if current_user
+      redirect_to redirect_user and return
+    end
   end
 
 

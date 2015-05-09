@@ -1,7 +1,11 @@
 class UserController < ApplicationController
   layout 'provider'
-  def show
-    @user = User.find_by_id(params[:id])
+  def index
+    @user = current_user
+  end
+
+  def sign_in
+    redirect_to root_path
   end
 
   def notifications

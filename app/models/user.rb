@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
     end
   end
 
+
   def details
     "<input type='hidden' id='provider_id' value='#{id}' /><br/>
     <span class='info_image'><center><img src='https://www.google.co.in/logos/doodles/2015/nellie-blys-151st-birthday-4862371034038272-res.png' /></center></span><br/>

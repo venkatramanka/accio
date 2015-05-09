@@ -1,11 +1,11 @@
 Accio::Application.routes.draw do
 
-  resources :user
-  match 'notification/:id' => 'user#notifications', :as => "notifications"
+  resources :user, :only => [:update]
+  match '/notification' => 'user#notifications', :as => "notifications"
   match '/deactivate' => 'notification#deactivate'
 
   root :to => "home#index"
-
+  match '/user' => 'user#index', :as => "user"
   get 'home/get_users'
   get 'home/user_data'
   get 'home/request_callback'

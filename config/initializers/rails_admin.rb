@@ -14,7 +14,7 @@ RailsAdmin.config do |config|
   config.authorize_with do |controller|
     unless current_user.is_a?(Admin)
       flash[:error] = "You are not an admin"
-      redirect_to main_app.root_path
+      redirect_to main_app.user_path
     end
   end
   # RailsAdmin may need a way to know who the current user is]
@@ -33,10 +33,10 @@ RailsAdmin.config do |config|
   config.default_items_per_page = 20
 
   # Exclude specific models (keep the others):
-  config.excluded_models = ['UserService']
+  # config.excluded_models = ['UserService']
 
   # Include specific models (exclude the others):
-  # config.included_models = ['Service', 'User', 'UserService']
+  config.included_models = ['Service', 'Provider','Admin']
 
   # Label methods for model instances:
   # config.label_methods << :description # Default is [:name, :title]
