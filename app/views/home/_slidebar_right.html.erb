@@ -28,9 +28,7 @@
           <div id="request_callback_div" style="display:none">
             <div class ='form-group'  >
               <strong>Help us help you...</strong><br/>
-              <%= text_field_tag 'requestor_name', nil, placeholder: 'Enter your name...', class: 'form-control' %><br/>
-              <%= text_field_tag 'requestor_phone', nil, placeholder: 'Enter your contact number...', class: 'form-control' %><br/>
-              <%= text_area_tag 'requestor_message',  nil, placeholder: 'Short issue description', class: 'form-control' %><br/>
+              <%= render partial: "requestor_details_form" %>
               <%= button_tag('Request Callback', onclick:"requestCallback();", class: 'btn btn-primary btn-sm btn-block') %>
             </div>
             <a href='#' class='pull-right' onclick='closeRequestCallbackForm();'>Go Back</a>
@@ -47,8 +45,11 @@
         </h4>
       </div>
       <div id="help_me_accordion" class="panel-collapse collapse">
-        <div class="panel-body">
-          Two 
+        <div id="help_me_content" class="panel-body">
+          <strong><span class='notice'>Enable location settings in your browser to help us track your location</span></strong><br/>
+          <strong><span class='notice'>Click on map to select location where help is needed</span></strong><br/>
+          <%= render partial: "help_requestor_details_form" %>
+          <%= button_tag('Help Me', onclick:"helpMe();", class: 'btn btn-primary btn-sm btn-block') %>
         </div>
       </div>
     </div>

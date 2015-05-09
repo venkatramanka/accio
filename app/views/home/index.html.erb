@@ -5,6 +5,7 @@
 <%= render :partial => 'producer_signin' %>
 <%= render :partial => 'admin_signin' %>
 <script>
+var requestor_marker;
 handler = Gmaps.build('Google',
   {
     markers:{
@@ -25,5 +26,23 @@ handler.buildMap({ provider: {streetViewControl: false}, internal: {id: 'map'}},
     handler.removeMarker(marker);
     handler.fitMapToBounds();
   }
+  google.maps.event.addListener(handler.getMap(), "click", function(event) {
+      if($('#help_me_accordion').attr("aria-expanded")=="true") {
+        if(window.requestor_marker!==undefined) {
+          handler.removeMarker(window.requestor_marker);
+        }
+        var pos_lat = event.latLng.lat();
+        var pos_lng = event.latLng.lng();
+        window.requestor_marker = handler.addMarker({
+          lat: pos_lat,
+          lng: pos_lng,
+          picture: {
+            url: "assets/map-marker.png",
+            width:  40,
+            height: 66
+          },
+        });
+      }
+    });
 });
 </script>

@@ -21,7 +21,20 @@ def get_users
   end
 
   def request_callback
-    
+    Notification.create!({
+      user_id: params[:user_id],
+      service_id: params[:service_id],
+      requestor_name: params[:requestor_name],
+      requestor_phone: params[:requestor_phone],
+      requestor_message: params[:requestor_message]
+      })
+    render :text => "True"
+  end
+
+  def help_me
+    lat = params[:lat]
+    lng=params[:lng]
+    User.active.where("latitude between '#{lat.to_f-0.5}' and '#{lat.to_f+0.5}' and longitude between '#{lng.to_f-0.5}' and '#{lng.to_f+0.5}'"  )
   end
 
 end

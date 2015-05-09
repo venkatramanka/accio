@@ -46,7 +46,7 @@ box-shadow:         0 0 5vh 0 rgba(255, 255, 255, 1.67);
   height:7em;
   width:15em;
 }
-#show_more_content, #help_me_accordion{
+#show_more_content, #help_me_content{
   height:23em;
   width:21em;
 }
@@ -59,4 +59,7 @@ div.sb-right {
 }
 .panel select,.panel input, .panel textarea, .panel button, .panel-title, .panel-body{
   font-size: 0.8em;
+}
+.notice{
+  color: red;
 }

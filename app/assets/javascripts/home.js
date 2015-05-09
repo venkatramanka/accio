@@ -1,4 +1,4 @@
-var markers;
+var markers, lat, lng;
 $(document).ready(function(){
   $.slidebars({
     siteClose: false
@@ -10,6 +10,10 @@ $('#help_me_accordion').on('show.bs.collapse', function () {
 });
 $('#show_more_accordion').on('show.bs.collapse', function () {
   $("#help_me_accordion").collapse("hide");
+});
+navigator.geolocation.getCurrentPosition(function(pos){
+    window.lat = pos.coords.latitude;
+    window.lng = pos.coords.longitude;
 });
 });
 
@@ -93,7 +97,8 @@ function requestCallback() {
   $.ajax({
     url: 'home/request_callback',
     data: {
-      provider_id: provider_id,
+      user_id: provider_id,
+      service_id: service_id,
       requestor_name: requestor_name,
       requestor_phone: requestor_phone,
       requestor_message: requestor_message
@@ -101,6 +106,40 @@ function requestCallback() {
     method: 'get',
     success: function(data){
       closeRequestCallbackForm();
+      alert("Callback requested. Let the magic begin...");
+    },
+    failure: function(data){
+      alert("Something went wrong !!!");
+    }
+  });
+}
+function helpMe() {
+  if (window.requestor_marker) {
+    window.lat=window.requestor_marker.getServiceObject().getPosition().lat();
+    window.lng=window.requestor_marker.getServiceObject().getPosition().lng();
+  }
+  else if ((window.lat !==undefined)&&(window.lng!==undefined)) {
+  }
+  else {
+    alert("No magic without your support !!!");
+    return false;
+  }
+  service_id=$('#service').val();
+  requestor_name=$("#help_requestor_name").val();
+  requestor_phone=$("#help_requestor_phone").val();
+  requestor_message=$("#help_requestor_message").val();
+  $.ajax({
+    url: 'home/help_me',
+    data: {
+      lat: lat,
+      lng: lng,
+      service_id: service_id,
+      requestor_name: requestor_name,
+      requestor_phone: requestor_phone,
+      requestor_message: requestor_message,
+    },
+    method: 'get',
+    success: function(data){
       alert("Callback requested. Let the magic begin...");
     },
     failure: function(data){
