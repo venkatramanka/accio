@@ -7,7 +7,7 @@ class CreateNotifications < ActiveRecord::Migration
       t.string :requestor_phone
       t.text :requestor_message
       t.string :group_id
-
+      t.boolean :active, :default =>  true
       t.timestamps
     end
   end
