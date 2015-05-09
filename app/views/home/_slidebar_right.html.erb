@@ -33,6 +33,9 @@
             </div>
             <a href='#' class='pull-right' onclick='closeRequestCallbackForm();'>Go Back</a>
           </div>
+          <div id="please_wait" class="panel-body" style="display:none">
+            Please wait while we process your request !!!
+          </div>
         </div>
       </div>
     </div>
@@ -50,6 +53,12 @@
           <strong><span class='notice'>Click on map to select location where help is needed</span></strong><br/>
           <%= render partial: "help_requestor_details_form" %>
           <%= button_tag('Help Me', onclick:"helpMe();", class: 'btn btn-primary btn-sm btn-block') %>
+        </div>
+        <div id="help_callback_div" class="panel-body" style="display:none">
+            <a href='#' class='pull-right' onclick='closeHelpCallbackDiv();'>Go Back</a>
+        </div>
+        <div id="help_please_wait" class="panel-body" style="display:none">
+            Please wait while we process your request !!!
         </div>
       </div>
     </div>

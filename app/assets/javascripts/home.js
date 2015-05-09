@@ -88,7 +88,18 @@ function closeRequestCallbackForm(){
   $('#request_callback_div').hide(1000);
 }
 
+function openHelpCallbackDiv(){
+  $('#help_me_content').hide(1000);
+  $('#help_callback_div').show(1000);
+}
+function closeHelpCallbackDiv(){
+  $('#help_me_content').show(1000);
+  $('#help_callback_div').hide(1000);
+}
+
 function requestCallback() {
+  $('#please_wait').show(1000);
+  $('#request_callback_div').hide(1000);
   provider_id=$('#provider_id').val();
   service_id=$('#service').val();
   requestor_name=$("#requestor_name").val();
@@ -105,15 +116,18 @@ function requestCallback() {
     },
     method: 'get',
     success: function(data){
+      $('#please_wait').hide(1000);
       closeRequestCallbackForm();
-      alert("Callback requested. Let the magic begin...");
     },
-    failure: function(data){
-      alert("Something went wrong !!!");
+    error: function(data){
+      $('#please_wait').hide(1000);
+      alert("Oops !!! Something is wrong :(");
     }
   });
 }
 function helpMe() {
+  $('#help_please_wait').show(1000);
+  $('#help_me_content').hide(1000);
   if (window.requestor_marker) {
     window.lat=window.requestor_marker.getServiceObject().getPosition().lat();
     window.lng=window.requestor_marker.getServiceObject().getPosition().lng();
@@ -140,12 +154,28 @@ function helpMe() {
     },
     method: 'get',
     success: function(data){
-      alert("Callback requested. Let the magic begin...");
+      if(data.length===0){
+        $('#help_callback_div').prepend("Sorry. No results found near your location.")
+      }
+      else {
+        $('#help_callback_div').html("<a href='#' class='pull-right' onclick='closeHelpCallbackDiv();'>Go Back</a>")
+        data.reverse().forEach(function(provider){
+          $('#help_callback_div').prepend("<strong>"+provider["name"]+"</strong><br/>"+provider["mobile"]+"<br/><br/>");
+        });
+        $('#help_callback_div').prepend("<strong>Hey we have asked these people to help you out. Pls get in touch with them.</strong><br/><br/>")
+      }
+      $('#help_callback_div').show(1000);
+      $('#help_please_wait').hide(1000);
+      openHelpCallbackDiv();
+
     },
-    failure: function(data){
-      alert("Something went wrong !!!");
+    error: function(data){
+      $('##help_me_content').show(1000);
+      $('#help_please_wait').hide(1000);
+      alert("Oops !!! Something is wrong :(");
     }
   });
+
 }
 function toggleFullScreen() {
   // if (!document.fullscreenElement &&    // alternative standard method

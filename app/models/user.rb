@@ -39,4 +39,8 @@ class User < ActiveRecord::Base
     <span class='pull-right'>#{city} - #{zipcode}</span><br/>
     <span class='pull-left'><a href='#' onclick='openRequestCallbackForm();'>Request Callback</a></span>"
   end
+
+  def calc_distance(lat, lng)
+    Math.sqrt(((lat.to_f-latitude.to_f)**2)+((lng.to_f-longitude.to_f)**2))
+  end
 end
