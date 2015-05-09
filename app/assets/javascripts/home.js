@@ -4,7 +4,6 @@ $(document).ready(function(){
     siteClose: false
   });
   consumerToggle();
-  $('#show_more_accordion').collapse("hide");
   
 $('#help_me_accordion').on('show.bs.collapse', function () {
   $("#show_more_accordion").collapse("hide");
