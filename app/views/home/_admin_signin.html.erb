@@ -1,0 +1,21 @@
+<div id="adminLoginModal" class="modal fade"  role="dialog" aria-labelledby="Signin" aria-hidden="true" data-backdrop="static" data-keyboard="false" tabindex="-1" style="z-index:99999">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 id="form_type_text" class="text-center" style="color:dodgerblue">Admin Signin</h4>
+      </div>
+      <div class="modal-body">
+        <div id="admin_signin_form" class="row">
+          <%= form_for(:user, :url => session_path(:user), :html => {:class => 'form-group col-md-offset-2 col-md-8'}) do |f| %>
+            <%= f.text_field :email, :class => 'form-control', :placeholder => "Enter your email" %>
+            <br/>
+            <%= f.password_field :password, :class => 'form-control', :placeholder => "Enter your password" %>
+            <br/>
+            <%= f.submit 'Sign in', :class => 'btn btn-primary col-md-offset-4 col-md-4' %>
+          <% end %>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>

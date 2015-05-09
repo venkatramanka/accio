@@ -1,5 +1,5 @@
 <div class="sb-slidebar sb-left sb-style-overlay sb-width-custom" style="opacity:0.8" data-sb-width="100%">
-  <div class="container" style="width:70vw;height:90vh">
+  <div class="container" style="width:70vw;height:100vh">
     <div class="row" style="color:white"><center><span style="height: 12em;margin-top:2em">ACCIO</span></center></div>
     <div class="row" style="height:20%"></div>
     <div class="row images_holder" style="height:60%;width:100%">
@@ -9,6 +9,9 @@
       <div class="col-md-6 col-xs-12">
         <center><a href="#" onclick="consumerToggle();toggleFullScreen();$('#services_modal').modal('show');"><%= image_tag "consumer.png", style: "width:60%", id: "consumer_image" %></a></center>
       </div>
+    </div>
+    <div class="row" style="position:absolute;bottom:1vh;width:100%">
+      <center><a href="#" onclick="$('#adminLoginModal').modal('show');"><%= image_tag "rajni.gif", style: "width:10%", id: "admin_image" %></a></center>
     </div>
   </div>
 </div>

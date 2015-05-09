@@ -34,3 +34,11 @@ box-shadow:         0 0 10vh 0 rgba(0, 255, 0, 1.67);
 -moz-box-shadow:    0 0 10vh 0 rgba(232, 0, 0, 1.67);
 box-shadow:         0 0 10vh 0 rgba(232, 0, 0, 1.67);
 }
+#admin_image:hover{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+ -webkit-box-shadow: 0 0 5vh 0 rgba(255, 255, 255, 1.67);
+-moz-box-shadow:    0 0 5vh 0 rgba(255, 255, 255, 1.67);
+box-shadow:         0 0 5vh 0 rgba(255, 255, 255, 1.67);
+}
