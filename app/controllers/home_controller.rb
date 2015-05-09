@@ -20,4 +20,8 @@ def get_users
     render :text => user.details
   end
 
+  def request_callback
+    
+  end
+
 end

@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :active, :address1, :address2, :city, :latitude, :longitude, :mobile, :name, :phone, :state, :verified, :zipcode
   has_many :user_services
   has_many :services, :through => :user_services
+  has_many :notifications
 
   scope :active, where(:active => true)
 

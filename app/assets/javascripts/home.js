@@ -86,6 +86,7 @@ function closeRequestCallbackForm(){
 
 function requestCallback() {
   provider_id=$('#provider_id').val();
+  service_id=$('#service').val();
   requestor_name=$("#requestor_name").val();
   requestor_phone=$("#requestor_phone").val();
   requestor_message=$("#requestor_message").val();

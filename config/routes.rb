@@ -7,6 +7,8 @@ Accio::Application.routes.draw do
 
   get 'home/get_users'
   get 'home/user_data'
+  get 'home/request_callback'
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :users
 
