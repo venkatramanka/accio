@@ -5,6 +5,8 @@ class UserController < ApplicationController
   end
 
   def notifications
+    @group_notifs = current_user.notifications.active.grouped
+    @indi_notifs = current_user.notifications.active.individual
   end
 
   def update

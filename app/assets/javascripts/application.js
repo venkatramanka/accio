@@ -15,3 +15,20 @@
 //= require gmaps/google
 //= require underscore-min
 //= require_tree .
+function deactivateAlert(elem){
+  var elemID = jQuery(elem).attr("id");
+  alert(elemID);
+  $.ajax({
+    url: '/deactivate',
+    data:{
+      id: elemID
+    },
+    method: 'post',
+    success: function(data){
+  	  closeAlert(elem);
+    },
+    failure: function(data){
+      alert("Something went wrong !!!");
+    }
+  });
+}

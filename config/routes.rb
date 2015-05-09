@@ -2,6 +2,7 @@ Accio::Application.routes.draw do
 
   resources :user
   match 'notification/:id' => 'user#notifications', :as => "notifications"
+  match '/deactivate' => 'notification#deactivate'
 
   root :to => "home#index"
 

@@ -16,13 +16,13 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">
-        <img alt="Brand" src="...">
+        <%= image_tag "accio_logo.gif", style: "height:2em" %>  
       </a>
     </div>
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class=<%= "active" if params[:action] == "show" %>> <%= link_to("Profile",user_path) %> </li>
-        <li class=<%= "active" if params[:action] == "notifications" %>><a href="#">Notification</a></li>
+        <li class=<%= "active" if params[:action] == "notifications" %>> <%= link_to("Notifications",notifications_path) %></li>
       </ul>
       <%= link_to "Signout", destroy_user_session_path, :class => "navbar-text navbar-right btn btn-xs btn-primary", :style => "color:white;margin-right:0.1vw", :method => "DELETE"  %>
       <p class="navbar-text navbar-right" style="border-right: 1px solid grey">Welcome <%= current_user.name %>&nbsp;&nbsp;</p>
