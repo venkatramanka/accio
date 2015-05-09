@@ -9,6 +9,15 @@
   height:100%;
   width:100%;
 }
+.modal-dialog, .images_holder {
+  margin: auto;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  display: inline-table;
+}
 #consumer_image:hover{
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
