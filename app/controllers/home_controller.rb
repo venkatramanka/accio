@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 
 def get_users
   service=Service.find_by_id(params[:service_id])
-  users = service.users
+  users = service.users.active
   @hash = Gmaps4rails.build_markers(users) do |user, marker|
     marker.lat user.latitude
     marker.lng user.longitude
@@ -14,5 +14,10 @@ def get_users
   end
   render :json => @hash.to_json
  end
+
+  def user_data
+    user = User.find(params[:user_id])
+    render :text => user.details
+  end
 
 end

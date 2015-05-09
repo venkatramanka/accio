@@ -4,6 +4,9 @@ Accio::Application.routes.draw do
   match 'notification/:id' => 'user#notifications', :as => "notifications"
 
   root :to => "home#index"
+
+  get 'home/get_users'
+  get 'home/user_data'
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :users
 

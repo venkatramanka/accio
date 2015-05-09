@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :user_services
   has_many :services, :through => :user_services
 
+  scope :active, where(:active => true)
+
   rails_admin do
     list do
       field :name
@@ -23,5 +25,17 @@ class User < ActiveRecord::Base
       field :active
       field :verified
     end
+  end
+
+  def details
+    "<input type='hidden' id='provider_id' value='#{id}' /><br/>
+    <span class='info_image'><center><img src='https://www.google.co.in/logos/doodles/2015/nellie-blys-151st-birthday-4862371034038272-res.png' /></center></span><br/>
+    <span class='pull-right'><strong>#{name}</strong></span><br/>
+    <span class='pull-right'><strong>#{mobile}</strong></span><br/>
+    <span class='pull-right'>#{phone}</span><br/>
+    <span class='pull-right'>#{address1}</span><br/>
+    <span class='pull-right'>#{address2}</span><br/>
+    <span class='pull-right'>#{city} - #{zipcode}</span><br/>
+    <span class='pull-left'><a href='#' onclick='openRequestCallbackForm();'>Request Callback</a></span>"
   end
 end

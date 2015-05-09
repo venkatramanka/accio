@@ -43,6 +43,20 @@ box-shadow:         0 0 10vh 0 rgba(232, 0, 0, 1.67);
 box-shadow:         0 0 5vh 0 rgba(255, 255, 255, 1.67);
 }
 .infobox_details{
-  height:100px;
-  width:200px;
+  height:7em;
+  width:15em;
+}
+#show_more_content, #help_me_accordion{
+  height:23em;
+  width:21em;
+}
+.info_image img{
+  height: 9em;
+  width:  7em;
+}
+div.sb-right {
+  background-color: transparent;
+}
+.panel select,.panel input, .panel textarea, .panel button, .panel-title, .panel-body{
+  font-size: 0.8em;
 }
