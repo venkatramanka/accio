@@ -9,4 +9,19 @@ class User < ActiveRecord::Base
   attr_accessible :active, :address1, :address2, :city, :latitude, :longitude, :mobile, :name, :phone, :state, :verified, :zipcode
   has_many :user_services
   has_many :services, :through => :user_services
+
+  rails_admin do
+    list do
+      field :name
+      field :active
+      field :verified
+      field :email
+    end
+    edit do
+      field :name
+      field :email
+      field :active
+      field :verified
+    end
+  end
 end
