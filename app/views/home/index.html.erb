@@ -1,3 +1,8 @@
+<% if flash[:error].present? %> 
+  <script type="text/javascript">
+    alert("<%=flash[:error] %>");
+  </script>
+<% end %>
 <%= render :partial => 'background_map' %>
 <%= render :partial => 'slidebar_left' %>
 <%= render :partial => 'slidebar_right' %>
@@ -37,7 +42,7 @@ handler.buildMap({ provider: {streetViewControl: false}, internal: {id: 'map'}},
           lat: pos_lat,
           lng: pos_lng,
           picture: {
-            url: "assets/map-marker.png",
+            url: "assets/marker_green.png",
             width:  40,
             height: 66
           },

@@ -4,7 +4,6 @@ $(document).ready(function(){
     siteClose: false
   });
   consumerToggle();
-  $('#show_more_accordion').collapse("hide");
   
 $('#help_me_accordion').on('show.bs.collapse', function () {
   $("#show_more_accordion").collapse("hide");
@@ -147,6 +146,7 @@ function helpMe() {
     return false;
   }
   service_id=$('#service').val();
+  $('#help_callback_div').html("<a href='#' class='pull-right' onclick='closeHelpCallbackDiv();'>Go Back</a>")
   $.ajax({
     url: 'home/help_me',
     data: {
@@ -163,7 +163,6 @@ function helpMe() {
         $('#help_callback_div').prepend("Sorry. No results found near your location.")
       }
       else {
-        $('#help_callback_div').html("<a href='#' class='pull-right' onclick='closeHelpCallbackDiv();'>Go Back</a>")
         data.reverse().forEach(function(provider){
           $('#help_callback_div').prepend("<strong>"+provider["name"]+"</strong><br/>"+provider["mobile"]+"<br/><br/>");
         });

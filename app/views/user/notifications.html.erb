@@ -1,6 +1,6 @@
 <div class="well container"style="height:75vh;margin-top:5vh;margin-bottom:5vh;overflow-y:auto">
   
-  <% if @group_notifs.present? || @indi_notifs.present? %>
+  <% if (@tweets = get_tweets).present? || @group_notifs.present? || @indi_notifs.present? %>
     <% @indi_notifs.each do |notif| %>
       <div class="alert alert-info ">
         <a id="<%= notif.id %>" href="#" class="close" onclick="deactivateAlert(this)">&times;</a>
@@ -11,6 +11,12 @@
       <div class="alert alert-error alert-danger ">
         <a id="<%= notif.id %>" href="#" class="close" onclick="deactivateAlert(this)">&times;</a>
         <strong><%= notif.requestor_name %> (Ph - <%= notif.requestor_phone %>) </strong> requested help : "<%= notif.requestor_message %>"
+      </div>
+    <%end%>  
+    <% @tweets.each do |notif| %>
+      <div class="alert alert-success ">
+        <a id="-1" href="#" class="close" onclick="deactivateAlert(this)">&times;</a>
+        Twitter request for <strong><%= notif.service %> </strong> in your area at <%= notif.created_at %>
       </div>
     <%end%>  
     

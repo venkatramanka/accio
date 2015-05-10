@@ -26,6 +26,9 @@ $(document).ready(function(){
         <div id="signup_form" class="row">
           <%= form_for(:user, url: registration_path(:user), :html => {:class => 'form-group col-md-offset-2 col-md-8'}) do |f| %>
             <div class="field">
+              <%= f.text_field :name, :class => 'form-control', :placeholder => "Enter your Full Name" %><br/>
+            </div>
+            <div class="field">
               <%= f.email_field :email, autofocus: true, :class => 'form-control', :placeholder => 'Enter your email' %><br/>
             </div>
 
