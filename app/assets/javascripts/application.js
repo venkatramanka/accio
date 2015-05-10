@@ -31,4 +31,4 @@ function deactivateAlert(elem){
       alert("Something went wrong !!!");
     }
   });
-}
+}//= require websocket_rails/main

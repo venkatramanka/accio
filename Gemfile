@@ -26,6 +26,7 @@ gem 'gmaps4rails'
 gem 'devise'
 gem 'paperclip', "3.4.2"
 gem 'tweetstream'
+gem 'chatter', :git => 'https://github.com/venkatramanka/chatter.git'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
