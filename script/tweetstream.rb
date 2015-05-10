@@ -32,7 +32,7 @@ daemon.track('@accioService', '@accioservice') do |tweet|
   TweetRequest.create!(:service => service.downcase.delete("#"), :zipcode => zipcode.delete("#zip"))
   providers = User.active.where(:zipcode => zipcode.delete("#zip")).select{|user| user.services.collect(&:name).collect(&:downcase).include? service.downcase.delete('#')}.first(3)
   if providers.blank?
-    client.update("No active members found around #{zipcode} right now.")
+    client.update("No active #{service.downcase.delete('#')} around #{zipcode} right now.")
   else
     client.update("Contact number(s) for #{service} around #{zipcode} : #{providers.collect(&:phone).join(", ")} ")
   end
