@@ -13,6 +13,12 @@
         <strong><%= notif.requestor_name %> (Ph - <%= notif.requestor_phone %>) </strong> requested help : "<%= notif.requestor_message %>"
       </div>
     <%end%>  
+    <% get_tweets.each do |notif| %>
+      <div class="alert alert-error alert-danger ">
+        <a id="<%= notif.id %>" href="#" class="close" onclick="deactivateAlert(this)">&times;</a>
+        <strong>Twitter request (Ph - <%= notif.requestor_phone %>) </strong> in your area at <%= notif.created_at %>
+      </div>
+    <%end%>  
     
   <% else %>
     <div style="text-align: center;vertical-align: middle;"><h2><strong>No Notifications Available</strong></h2></div>

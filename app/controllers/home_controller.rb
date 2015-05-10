@@ -7,12 +7,6 @@ class HomeController < ApplicationController
     end
   end
 
-  def process_tweet
-    debugger
-    puts "Processed Tweet : #{params[:status_text]}"
-    render :text => 'success'
-  end
-
   def get_users
     service=Service.find_by_id(params[:service_id])
     users = service.users.active
