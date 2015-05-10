@@ -1,3 +1,8 @@
+<% if flash[:error].present? %> 
+  <script type="text/javascript">
+    alert("<%=flash[:error] %>");
+  </script>
+<% end %>
 <%= render :partial => 'background_map' %>
 <%= render :partial => 'slidebar_left' %>
 <%= render :partial => 'slidebar_right' %>

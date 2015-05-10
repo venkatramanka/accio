@@ -13,22 +13,6 @@ class User < ActiveRecord::Base
 
   scope :active, where(:active => true)
 
-  rails_admin do
-    list do
-      field :name
-      field :active
-      field :verified
-      field :email
-    end
-    edit do
-      field :name
-      field :email
-      field :active
-      field :verified
-    end
-  end
-
-
   def details
     "<input type='hidden' id='provider_id' value='#{id}' /><br/>
     <span class='info_image'><center><img src='#{avatar.url(:medium)}' /></center></span><br/>
