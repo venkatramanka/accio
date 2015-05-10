@@ -17,18 +17,22 @@
 //= require_tree .
 function deactivateAlert(elem){
   var elemID = jQuery(elem).attr("id");
-  alert(elemID);
-  $.ajax({
-    url: '/deactivate',
-    data:{
-      id: elemID
-    },
-    method: 'post',
-    success: function(data){
-  	  closeAlert(elem);
-    },
-    failure: function(data){
-      alert("Something went wrong !!!");
-    }
-  });
+  if(elemID == -1){
+    closeAlert(elem);
+  }
+  else{
+    $.ajax({
+      url: '/deactivate',
+      data:{
+        id: (elemID || 0)
+      },
+      method: 'post',
+      success: function(data){
+    	  closeAlert(elem);
+      },
+      failure: function(data){
+        alert("Something went wrong !!!");
+      }
+    });
+  }
 }//= require websocket_rails/main

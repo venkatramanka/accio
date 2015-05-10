@@ -18,7 +18,7 @@ client = Twitter::REST::Client.new do |config|
     config.access_token_secret = "dEhlCO2tppyO3hTQkPeFGP0ou1DMhHYbksvwW9fk23YUd"
 end
 
-daemon = TweetStream::Daemon.new('tracker', :log_output => false)
+daemon = TweetStream::Daemon.new('tracker', :log_output => true)
 daemon.on_inited do
   puts "Connected to Database."
   ActiveRecord::Base.connection.reconnect!
@@ -31,5 +31,9 @@ daemon.track('@accioService', '@accioservice') do |tweet|
   puts zipcode
   TweetRequest.create!(:service => service.downcase.delete("#"), :zipcode => zipcode.delete("#zip"))
   providers = User.active.where(:zipcode => zipcode.delete("#zip")).select{|user| user.services.collect(&:name).collect(&:downcase).include? service.downcase.delete('#')}.first(3)
-  client.update("Contact number(s) for #{service} around #{zipcode} : #{providers.collect(&:phone).join(", ")} ")
+  if providers.blank?
+    client.update("No active members found around #{zipcode} right now.")
+  else
+    client.update("Contact number(s) for #{service} around #{zipcode} : #{providers.collect(&:phone).join(", ")} ")
+  end
 end
