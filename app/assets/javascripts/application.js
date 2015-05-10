@@ -24,7 +24,7 @@ function deactivateAlert(elem){
     $.ajax({
       url: '/deactivate',
       data:{
-        id: (elemID || 0)
+        id: elemID
       },
       method: 'post',
       success: function(data){

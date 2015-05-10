@@ -1,6 +1,6 @@
 <div class="well container"style="height:75vh;margin-top:5vh;margin-bottom:5vh;overflow-y:auto">
   
-  <% if @group_notifs.present? || @indi_notifs.present? || (@tweets = get_tweets).present?  %>
+  <% if (@tweets = get_tweets).present? || @group_notifs.present? || @indi_notifs.present? %>
     <% @indi_notifs.each do |notif| %>
       <div class="alert alert-info ">
         <a id="<%= notif.id %>" href="#" class="close" onclick="deactivateAlert(this)">&times;</a>
