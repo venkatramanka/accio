@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 
   def details
     "<input type='hidden' id='provider_id' value='#{id}' /><br/>
-    <span class='info_image'><center><img src='https://www.google.co.in/logos/doodles/2015/nellie-blys-151st-birthday-4862371034038272-res.png' /></center></span><br/>
+    <span class='info_image'><center><img src='#{avatar.url(:medium)}' /></center></span><br/>
     <div id='show_more_text' class='verified-#{verified.to_s}'>
     <div class='bg'></div>
     <span class='pull-right'><strong>#{name}</strong></span><br/>
