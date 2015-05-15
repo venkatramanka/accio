@@ -6,7 +6,7 @@ gem 'rails', '3.2.17'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-
+gem 'rails_admin'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,6 +21,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+gem 'gmaps4rails'
+gem 'devise'
+gem 'paperclip', "3.4.2"
+gem 'tweetstream'
+gem 'chatter', :git => 'https://github.com/venkatramanka/chatter.git'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

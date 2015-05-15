@@ -1,4 +1,22 @@
 Accio::Application.routes.draw do
+
+  mount Chatter::Engine, :at => '/chat'
+
+  resources :user, :only => [:update]
+  match '/notification' => 'user#notifications', :as => "notifications"
+  match '/deactivate' => 'notification#deactivate'
+
+  root :to => "home#index"
+  match '/user' => 'user#index', :as => "user"
+  get 'home/get_users'
+  get 'home/user_data'
+  get 'home/request_callback'
+  get 'home/help_me'
+  post 'home/process_tweet'
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  devise_for :users
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
